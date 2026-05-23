@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Market Lead Engine - Templates</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #fff; }
+        h1 { font-size: 26px; color: #1a365d; border-bottom: 3px solid #2b6cb0; padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { font-size: 20px; color: #2c5282; margin-top: 35px; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #4299e1; }
+        h3 { font-size: 16px; color: #2d3748; margin-top: 20px; margin-bottom: 10px; }
+        .template-box { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .template-title { background: #2b6cb0; color: white; padding: 10px 15px; border-radius: 6px 6px 0 0; font-weight: bold; margin: -20px -20px 15px -20px; }
+        .code-block { background: #2d3748; color: #e2e8f0; padding: 15px 20px; border-radius: 6px; font-family: 'Courier New', monospace; font-size: 13px; margin: 15px 0; }
+        p { margin-bottom: 10px; }
+        .note { background: #ebf8ff; border-left: 4px solid #4299e1; padding: 10px 15px; margin: 15px 0; }
+        footer { margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-size: 12px; color: #718096; text-align: center; }
+    </style>
+</head>
+<body>
+
+<h1>OFF-MARKET LEAD ENGINE<br><span style="font-size:16px; font-weight:normal;">Ready-to-Use Templates & Tools</span></h1>
+
+<p>Copy and customize these templates for your specific market and business. All templates are designed for immediate implementation.</p>
+
+<!-- TEMPLATE 1: SCRAPER -->
+<div class="template-box">
+<div class="template-title">TEMPLATE 1: Python Scraper - Tax Deed Extraction</div>
+
+<p>Use this script to extract tax deed listings from county portals. Customize the CSS selectors based on your county's page structure.</p>
+
+<div class="code-block">"""
+Tax Deed Scraper Template
+Customize selectors for your specific county portal
+"""
+
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+from datetime import datetime
+import time
+import random
+
+class TaxDeedScraper:
+    def __init__(self, county_name, base_url):
+        self.county_name = county_name
+        self.base_url = base_url
+        self.leads = []
+
+    def fetch_page(self, url, retries=3):
+        """Fetch page with error handling"""
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+
+        for attempt in range(retries):
+            try:
+                response = requests.get(url, headers=headers, timeout=30)
+                if response.status_code == 200:
+                    return response.content
+                else:
+                    print(f"Status code {response.status_code}, retrying...")
+            except Exception as e:
+                print(f"Error: {e}, retrying...")
+
+            time.sleep(random.uniform(2, 5))  # Random delay
+
+        return None
+
+    def parse_tax_deeds(self, html):
+        """Parse tax deed listings - customize selectors"""
+        soup = BeautifulSoup(html, 'html.parser')
+
+        # CUSTOMIZE THESE SELECTORS for your county
+        # Common patterns - adjust based on actual page structure
+        property_rows = soup.select('table.listings-table tbody tr')
+        # OR use: soup.select('.property-item')
+        # OR use: soup.select('div[data-type="deed"]')
+
+        for row in property_rows:
+            try:
+                lead = {
+                    'source': 'tax_deed',
+                    'scrape_date': datetime.now().strftime('%Y-%m-%d'),
+                    'county': self.county_name,
+                    'owner_name': self.clean_text(row.select_one('.owner-name, .grantee')),
+                    'property_address': self.clean_text(row.select_one('.property-address, .address')),
+                    'tax_id': self.clean_text(row.select_one('.tax-id, .parcel')),
+                    'amount_due': self.clean_text(row.select_one('.amount-due, .tax-amount')),
+                    'auction_date': self.clean_text(row.select_one('.auction-date, .sale-date')),
+                }
+
+                if lead['property_address']:
+                    self.leads.append(lead)
+            except Exception as e:
+                print(f"Error parsing row: {e}")
+                continue
+
+        return self.leads
+
+    def clean_text(self, element):
+        """Clean extracted text"""
+        if element:
+            return element.get_text(strip=True)
+        return ''
+
+    def save_results(self, filename='tax_deeds.csv'):
+        """Save collected leads to CSV"""
+        if self.leads:
+            df = pd.DataFrame(self.leads)
+            df.to_csv(filename, index=False)
+            print(f"Saved {len(self.leads)} records to {filename}")
+            return filename
+        return None
+
+# USAGE EXAMPLE
+# scraper = TaxDeedScraper("Miami-Dade", "https://taxcollector.county.gov")
+# html = scraper.fetch_page("https://taxcollector.county.gov/tax-deeds")
+# if html:
+#     scraper.parse_tax_deeds(html)
+#     scraper.save_results("daily_tax_deeds.csv")</div>
+
+<p><strong>Customization Notes:</strong></p>
+<ul>
+<li>Right-click on a property listing on your county portal and select "Inspect" to find the correct CSS selectors</li>
+<li>Test selectors one at a time to ensure they capture the right data</li>
+<li>Save the script and run it daily using Task Scheduler (Windows) or Cron (Mac/Linux)</li>
+</ul>
+</div>
+
+<!-- TEMPLATE 2: SCORING SCRIPT -->
+<div class="template-box">
+<div class="template-title">TEMPLATE 2: Lead Scoring Script</div>
+
+<p>Apply this algorithm to automatically score and prioritize your leads based on motivation indicators.</p>
+
+<div class="code-block">"""
+Lead Scoring Algorithm
+Scores leads 1-25 based on motivation factors
+"""
+
+import pandas as pd
+
+def score_leads(df):
+    """
+    Apply scoring algorithm to lead dataframe
+
+    Required columns: source, owner_state, amount_due, value_gap_pct,
+                      is_out_of_state, date_found, absentee_owner
+    """
+
+    scores = []
+
+    for idx, row in df.iterrows():
+        score = 0
+
+        # 1. SOURCE TYPE SCORING (max 5 points)
+        source_scores = {
+            'tax_deed': 5,
+            'pre-foreclosure': 4,
+            'probate': 3,
+            'inherited': 3,
+            'auction': 2,
+            'divorce': 2
+        }
+        source = str(row.get('source', '')).lower().strip()
+        score += source_scores.get(source, 1)
+
+        # 2. GEOGRAPHIC LOCATION (max 5 points)
+        if row.get('is_out_of_state', False):
+            score += 5
+        elif row.get('owner_state', 'UNKNOWN') != 'UNKNOWN':
+            # In-state but could be remote
+            score += 2
+
+        # 3. FINANCIAL PRESSURE (max 5 points)
+        try:
+            amount = float(str(row.get('amount_due', '0')).replace('$', '').replace(',', ''))
+            if amount > 20000:
+                score += 5
+            elif amount > 10000:
+                score += 4
+            elif amount > 5000:
+                score += 3
+            elif amount > 0:
+                score += 1
+        except:
+            pass
+
+        # 4. EQUITY OPPORTUNITY (max 5 points)
+        try:
+            gap = float(row.get('value_gap_pct', 0))
+            if gap > 50:
+                score += 5
+            elif gap > 30:
+                score += 4
+            elif gap > 15:
+                score += 3
+            elif gap > 0:
+                score += 1
+        except:
+            pass
+
+        # 5. ABSENTEE/OUT-OF-STATE OWNER (max 3 points)
+        if row.get('absentee_owner', False):
+            score += 3
+
+        # 6. TIME FACTOR (max 2 points)
+        try:
+            days = (pd.to_datetime('today') - pd.to_datetime(row.get('date_found', datetime.now()))).days
+            if days > 90:
+                score += 2
+            elif days > 30:
+                score += 1
+        except:
+            pass
+
+        scores.append(score)
+
+    df['motivation_score'] = scores
+
+    # Categorize into priority tiers
+    df['priority'] = pd.cut(
+        df['motivation_score'],
+        bins=[0, 8, 14, 20, 30],
+        labels=['Low', 'Medium', 'High', 'Hot']
+    )
+
+    # Sort by score descending
+    df = df.sort_values('motivation_score', ascending=False)
+
+    return df
+
+# USAGE
+# df = pd.read_csv('your_leads.csv')
+# scored_df = score_leads(df)
+# scored_df.to_csv('scored_leads.csv', index=False)
+# print(f"Hot leads: {len(scored_df[scored_df['priority'] == 'Hot'])}")
+# print(f"High leads: {len(scored_df[scored_df['priority'] == 'High'])}")</div>
+</div>
+
+<!-- TEMPLATE 3: DATABASE SETUP -->
+<div class="template-box">
+<div class="template-title">TEMPLATE 3: Airtable Base Structure</div>
+
+<p>Use this template to set up your lead tracking database in Airtable.</p>
+
+<h3>Table 1: Leads (Primary Table)</h3>
+
+<table>
+<tr><th>Field Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Lead ID</td><td>Auto-number (auto)</td><td>Unique identifier</td></tr>
+<tr><td>Owner Name</td><td>Single line text</td><td>Property owner full name</td></tr>
+<tr><td>Property Address</td><td>Single line text</td><td>Subject property address</td></tr>
+<tr><td>Mailing Address</td><td>Long text</td><td>Owner's mailing address</td></tr>
+<tr><td>Phone</td><td>Phone</td><td>Contact phone number</td></tr>
+<tr><td>Email</td><td>Email</td><td>Contact email</td></tr>
+<tr><td>Source</td><td>Single select</td><td>tax_deed, probate, pre-foreclosure, etc.</td></tr>
+<tr><td>Date Found</td><td>Date</td><td>When lead was scraped</td></tr>
+<tr><td>Scrape URL</td><td>URL</td><td>Link to original record</td></tr>
+<tr><td>Owner State</td><td>Single line text</td><td>Owner's mailing state</td></tr>
+<tr><td>Is Out of State</td><td>Checkbox</td><td>Owner lives outside target market</td></tr>
+<tr><td>Absentee Owner</td><td>Checkbox</td><td>Property not owner-occupied</td></tr>
+<tr><td>Amount Owed</td><td>Currency</td><td>Back taxes or liens owed</td></tr>
+<tr><td>ARV</td><td>Currency</td><td>After repair value estimate</td></tr>
+<tr><td>Value Gap %</td><td>Number</td><td>Market vs assessed value gap</td></tr>
+<tr><td>Motivation Score</td><td>Number</td><td>Calculated score (1-25)</td></tr>
+<tr><td>Priority</td><td>Single select</td><td>Hot, High, Medium, Low</td></tr>
+<tr><td>Status</td><td>Single select</td><td>Pipeline stage</td></tr>
+<tr><td>Last Contact</td><td>Date</td><td>Most recent outreach</td></tr>
+<tr><td>Next Action</td><td>Date</td><td>Scheduled follow-up</td></tr>
+<tr><td>Notes</td><td>Long text</td><td>Qualification notes, conversation details</td></tr>
+</table>
+
+<h3>Table 2: Outreach Log (Linked Table)</h3>
+
+<table>
+<tr><th>Field Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Lead ID</td><td>Linked (Leads)</td><td>Related lead</td></tr>
+<tr><td>Date</td><td>Date</td><td>Outreach date</td></tr>
+<tr><td>Channel</td><td>Single select</td><td>mail, text, call, email, RVM</td></tr>
+<tr><td>Response</td><td>Single select</td><td>none, reply, call, meeting</td></tr>
+<tr><td>Quality</td><td>Single select</td><td>Hot, Warm, Cold</td></tr>
+<tr><td>Notes</td><td>Long text</td><td>Response details</td></tr>
+</table>
+
+<h3>Table 3: Pipeline Views</h3>
+
+<p>Set up these views in your Leads table:</p>
+
+<ul>
+<li><strong>Kanban by Status:</strong> Group by Status column for visual pipeline management</li>
+<li><strong>Hot Leads:</strong> Filter where Priority = Hot, sorted by Motivation Score descending</li>
+<li><strong>This Week's Outreach:</strong> Filter where Next Action is within next 7 days</li>
+<li><strong>Needs Follow-up:</strong> Filter where Last Contact is older than 7 days AND Status not in [Dead, Under Contract]</li>
+</ul>
+</div>
+
+<!-- TEMPLATE 4: MAO CALCULATOR -->
+<div class="template-box">
+<div class="template-title">TEMPLATE 4: Maximum Allowable Offer (MAO) Calculator</div>
+
+<p>Use this worksheet to calculate your offer price for any deal.</p>
+
+<div class="code-block">"""
+MAKING A DECISION ON:
+Address: _______________________________
+Lead ID: _______
+
+=====================================
+STEP 1: AFTER REPAIR VALUE (ARV)
+=====================================
+What will this property sell for
+after all repairs are complete?
+
+Comparable Sale 1: $___________
+Comparable Sale 2: $___________
+Comparable Sale 3: $___________
+Average: $___________
+
+MY ARV ESTIMATE: $___________
+
+=====================================
+STEP 2: REPAIR COSTS
+=====================================
+Walk-through items:
+[ ] Roof: $___________
+[ ] HVAC: $___________
+[ ] Plumbing: $___________
+[ ] Electrical: $___________
+[ ] Kitchen: $___________
+[ ] Bathrooms: $___________
+[ ] Flooring: $___________
+[ ] Paint: $___________
+[ ] Landscaping: $___________
+[ ] Other: $___________
+
+SUBTOTAL REPAIRS: $___________
+
+Add 10% contingency: $___________
+TOTAL REPAIR BUDGET: $___________
+
+=====================================
+STEP 3: HOLDING COSTS
+=====================================
+Expected months to close: ___
+Monthly costs:
+[ ] Property taxes: $___________
+[ ] Insurance: $___________
+[ ] Utilities: $___________
+[ ] HOA: $___________
+[ ] Vacancy buffer: $___________
+
+Monthly total: $___________
+Holding cost estimate: $___________
+
+=====================================
+STEP 4: SELLING COSTS
+=====================================
+Expected sale price (ARV): $___________
+Selling costs (8-10%): $___________
+
+=====================================
+STEP 5: YOUR PROFIT TARGET
+=====================================
+Desired profit: $___________
+
+=====================================
+STEP 6: CALCULATE MAO
+=====================================
+ARV: $___________
+- Repairs: $___________
+- Holding: $___________
+- Selling: $___________
+- Profit: $___________
+_______________________________
+MAXIMUM ALLOWABLE OFFER: $___________
+
+=====================================
+STEP 7: OPENING OFFER
+=====================================
+MAO: $___________
+Negotiation cushion (15-20%): $___________
+OPENING OFFER: $___________
+
+=====================================
+DEAL SUMMARY
+=====================================
+ARV: $___________
+Your Offer: $___________
+Spread: $___________
+Profit Margin: ___%
+
+Confidence Level: [ ] Low [ ] Medium [ ] High
+
+Notes: _______________________________</div>
+</div>
+
+<!-- TEMPLATE 5: QUALIFICATION QUESTIONS -->
+<div class="template-box">
+<div class="template-title">TEMPLATE 5: Lead Qualification Script</div>
+
+<p>Use this script when calling responding leads to qualify them properly.</p>
+
+<h3>Opening (1 minute)</h3>
+<div class="code-block">"Hi [Name], this is [Your Name] calling. I'm reaching out because we help
+homeowners who want to sell their property quickly and easily. I saw that
+[property address] came up in my research and wanted to check if you're
+still considering a sale. Is now a good time to chat for just a few minutes?"</div>
+
+<h3>Situation Assessment (3 minutes)</h3>
+<div class="code-block">"Can you tell me a little bit about your situation? What's making you
+want to sell [property address]?"
+
+- Listen for: urgency, emotional triggers, timeline pressure
+
+"If you don't mind me asking, how long have you owned the property?"
+
+- Listen for: how long they've dealt with any issues
+
+"Have you had any major repairs or updates recently?"
+
+- Listen for: what they know about condition</div>
+
+<h3>Property Details (2 minutes)</h3>
+<div class="code-block">"Can you describe the current condition of the property? Are there any
+major systems that need attention - roof, HVAC, plumbing?"
+
+"Have you had any offers from other investors or agents?"
+
+- If yes: "What were those offers? What made you not accept?"
+- This helps understand their expectations</div>
+
+<h3>Timeline & Terms (2 minutes)</h3>
+<div class="code-block">"What's your timeline looking like? When do you need to close by?"
+
+"Are there any loans or liens on the property that need to be paid off?"
+
+"What do you need to walk away with from the sale to make this work for you?"
+
+- Write down their minimum number</div>
+
+<h3>Closer (1 minute)</h3>
+<div class="code-block">"I appreciate you sharing all of this with me. Based on what you've told me,
+I'd like to look at the property and put together a framework for you.
+Would it be okay if I scheduled a quick walkthrough this week?"
+
+"If the numbers make sense for both of us, I can close quickly - typically
+2-3 weeks. Does that timeline work for you?"
+
+"Let me get my calendar set up and I'll text you to confirm a time."</div>
+
+<h3>Red Flags to Watch For</h3>
+
+<ul>
+<li>Unrealistic price expectations with no flexibility</li>
+<li>Vague timeline (no urgency mentioned)</li>
+<li>Still hasn't decided if they want to sell</li>
+<li>More interested in your credentials than the property</li>
+<li>Not willing to share basic property details</li>
+</ul>
+
+<div class="note">
+<strong>Note:</strong> If a lead fails to provide basic information (address, condition, timeline), they're likely not motivated enough to transact. Focus your time on leads who engage actively.
+</div>
+</div>
+
+<!-- TEMPLATE 6: OFFER LETTER -->
+<div class="template-box">
+<div class="template-title">TEMPLATE 6: Purchase Offer Letter</div>
+
+<div class="code-block">DATE: [Current Date]
+
+RE: Purchase Offer for [Property Address]
+
+Dear [Seller Name],
+
+Thank you for considering my offer to purchase your property at [Property Address].
+
+OFFER DETAILS:
+Purchase Price: $[Your Offer Amount]
+Closing Date: [Proposed Date, typically 21-30 days from acceptance]
+Possession: [At closing / 72 hours after closing]
+Property Condition: Sold in current "AS-IS" condition
+
+PROPOSED TERMS:
+1. Property sold as-is with no repair requests
+2. Buyer responsible for all closing costs
+3. Title search to be completed at buyer's expense
+4. Clean title to be delivered at closing
+
+CONTINGENCIES:
+- Title examination satisfactory to buyer
+- Inspection period of [10-15] days from acceptance
+- Buyer may terminate for any reason during inspection period
+- Buyer to provide proof of funds or financing within 5 days of acceptance
+
+This offer is valid for 72 hours from receipt. If accepted, please sign below
+and return a copy to initiate the purchase process.
+
+I am committed to making this transaction smooth and professional. If you have
+questions, please contact me directly.
+
+Sincerely,
+
+[Your Name]
+[Your Company]
+[Phone Number]
+[Email Address]
+
+ACCEPTANCE:
+Seller accepts the above offer terms:
+_______________________________
+Seller Signature
+Date: _______________</div>
+</div>
+
+<!-- TEMPLATE 7: WEEKLY REVIEW TEMPLATE -->
+<div class="template-box">
+<div class="template-title">TEMPLATE 7: Weekly Pipeline Review Template</div>
+
+<div class="code-block">WEEKLY PIPELINE REVIEW
+Week of: _______________
+
+=====================================
+LEAD INTAKE SUMMARY
+=====================================
+New leads added: ___
+Scraped from: [sources]
+Top sources this week: _______________
+
+=====================================
+PIPELINE STATUS
+=====================================
+New Leads: ___
+Initial Contact: ___
+Responded: ___
+Qualified: ___
+Under Review: ___
+Offer Made: ___
+Negotiating: ___
+Under Contract: ___
+
+=====================================
+OUTREACH METRICS
+=====================================
+Total contacts made: ___
+Responses received: ___
+Response rate: ___%
+Best performing channel: _______________
+
+=====================================
+WEEK'S WINS
+=====================================
+[ ] Deal closed: Address _______, Price $_______
+[ ] Offer accepted: Address _______, Price $_______
+[ ] New qualified lead: Address _______
+[ ] Strong response on: [campaign/channel]
+
+=====================================
+FOLLOW-UP PRIORITIES
+=====================================
+1. _______________________________________
+2. _______________________________________
+3. _______________________________________
+
+=====================================
+BLOCKERS & ISSUES
+====================================_
+_______________________________________
+
+=====================================
+ADJUSTMENTS FOR NEXT WEEK
+====================================_
+_______________________________________
+
+=====================================
+NEXT WEEK GOALS
+=====================================
+Contacts: ___
+Responses: ___
+Offers to submit: ___
+Deals to close: ___</div>
+</div>
+
+<footer>
+<p>Customize these templates for your specific market, style, and business needs. Save originals before making changes.</p>
+</footer>
+
+</body>
+</html>

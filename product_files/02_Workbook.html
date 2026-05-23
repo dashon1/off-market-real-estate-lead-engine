@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Market Lead Engine - Action Workbook</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #fff; }
+        h1 { font-size: 26px; color: #1a365d; border-bottom: 3px solid #2b6cb0; padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { font-size: 20px; color: #2c5282; margin-top: 35px; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #4299e1; }
+        h3 { font-size: 16px; color: #2d3748; margin-top: 20px; margin-bottom: 10px; }
+        p { margin-bottom: 12px; }
+        .exercise-box { background: #f0fff4; border: 2px dashed #48bb78; border-radius: 8px; padding: 20px; margin: 20px 0; }
+        .exercise-box h4 { color: #276749; font-size: 15px; margin-bottom: 10px; }
+        .fill-blank { border-bottom: 2px solid #2b6cb0; display: inline-block; min-width: 150px; height: 20px; }
+        .checklist { background: #ebf8ff; border: 1px solid #bee3f8; border-radius: 6px; padding: 15px 20px; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th { background: #2b6cb0; color: white; padding: 12px; text-align: left; }
+        td { border: 1px solid #e2e8f0; padding: 10px 12px; }
+        .week-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 25px; border-radius: 8px; margin: 30px 0 20px 0; }
+        .week-section h2 { color: white; border: none; padding: 0; margin: 0; }
+        .week-section p { color: rgba(255,255,255,0.9); margin-top: 5px; }
+        .tracker-table td { height: 40px; }
+        .small-text { font-size: 12px; color: #718096; }
+        footer { margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-size: 12px; color: #718096; text-align: center; }
+    </style>
+</head>
+<body>
+
+<h1>OFF-MARKET LEAD ENGINE<br><span style="font-size:16px; font-weight:normal;">Action Workbook — Complete as You Go</span></h1>
+
+<p><strong>Instructions:</strong> Fill in each section as you progress through the 30-day system. This workbook becomes your personal reference guide for your specific market and business.</p>
+
+<!-- WEEK 1 EXERCISES -->
+<div class="week-section">
+<h2>WEEK 1 EXERCISES</h2>
+<p>Days 1-7: Build Your Data Infrastructure</p>
+</div>
+
+<h2>Exercise 1: Map Your Data Sources</h2>
+
+<p>List every public data source in your target county. Fill in the table below:</p>
+
+<table class="tracker-table">
+<tr><th>Source Name</th><th>URL or Location</th><th>Data Type</th><th>Update Frequency</th><th>How to Access</th></tr>
+<tr><td>Example: County Tax Collector</td><td>taxcollector.miamidade.gov</td><td>Tax deeds</td><td>Weekly (Mondays)</td><td>Search portal</td></tr>
+<tr><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td></tr>
+<tr><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td></tr>
+<tr><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td></tr>
+<tr><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td><td><div class="fill-blank"></div></td></tr>
+</table>
+
+<h2>Exercise 2: Scraping Tool Setup</h2>
+
+<div class="exercise-box">
+<h4>Step 1: Choose Your Approach</h4>
+<p>I am using (circle one):</p>
+<p>Python / n8n / Manual (Google Sheets) / Other: _______________</p>
+
+<h4>Step 2: Tool Setup Checklist</h4>
+<p>[ ] Installed Python 3.8+ or created n8n account</p>
+<p>[ ] Identified target webpage to scrape</p>
+<p>[ ] Tested connection to data source</p>
+<p>[ ] Successfully extracted sample data</p>
+
+<h4>Step 3: First Scrape Results</h4>
+<p>Date of first successful scrape: _______________</p>
+<p>Number of records collected: _______________</p>
+</div>
+
+<h2>Exercise 3: Database Setup</h2>
+
+<p>Create your lead tracking database. Use this template:</p>
+
+<div class="exercise-box">
+<h4>Database Name:</h4>
+<p><div class="fill-blank" style="min-width: 300px;"></div></p>
+
+<h4>Platform:</h4>
+<p>Google Sheets / Airtable / Excel / Other: _______________</p>
+
+<h4>Key Fields Created:</h4>
+<p>[ ] Lead ID (auto-number)</p>
+<p>[ ] Source (tax_deed / probate / pre-foreclosure)</p>
+<p>[ ] Owner Name</p>
+<p>[ ] Property Address</p>
+<p>[ ] Mailing Address</p>
+<p>[ ] Phone (if available)</p>
+<p>[ ] Date Found</p>
+<p>[ ] Motivation Score</p>
+<p>[ ] Status (New / Contacted / Qualified / etc.)</p>
+
+<h4>Database Link:</h4>
+<p><div class="fill-blank" style="min-width: 400px;"></div></p>
+</div>
+
+<!-- WEEK 2 EXERCISES -->
+<div class="week-section">
+<h2>WEEK 2 EXERCISES</h2>
+<p>Days 8-14: Clean & Score Your Leads</p>
+</div>
+
+<h2>Exercise 4: Data Cleaning Run</h2>
+
+<div class="exercise-box">
+<h4>Raw Data Summary</h4>
+<p>Total records before cleaning: _______________</p>
+<p>Date of cleaning run: _______________</p>
+
+<h4>Filter Results</h4>
+<p>Institutional buyers removed: _______________</p>
+<p>Duplicates removed: _______________</p>
+<p>Invalid records removed: _______________</p>
+<p>Clean records remaining: _______________</p>
+
+<h4>Geographic Filters Applied</h4>
+<p>[ ] Out-of-state owners flagged</p>
+<p>[ ] Absentee owners flagged</p>
+<p>[ ] Local investors excluded</p>
+
+<h4>Post-Clean Record Count: _______________</h4>
+</div>
+
+<h2>Exercise 5: GIS Data Enrichment</h2>
+
+<div class="exercise-box">
+<h4>Gravity Data Source Used:</h4>
+<p><div class="fill-blank" style="min-width: 300px;"></div></p>
+
+<h4>Data Fields Added:</h4>
+<p>[ ] Assessed value</p>
+<p>[ ] Market value / ARV estimate</p>
+<p>[ ] Square footage</p>
+<p>[ ] Year built</p>
+<p>[ ] Last sale price</p>
+<p>[ ] Last sale date</p>
+<p>[ ] Other: _______________</p>
+
+<h4>Properties with High Value Gap (25%+): _______________</h4>
+</div>
+
+<h2>Exercise 6: Scoring Calibration</h2>
+
+<p>Review your scoring system and adjust weights based on what you know about your market:</p>
+
+<table>
+<tr><th>Factor</th><th>My Weight (1-5)</th><th>Why This Weight</th></tr>
+<tr><td>Out-of-state owner</td><td>_______</td><td><div class="fill-blank"></div></td></tr>
+<tr><td>Source type (tax deed vs probate)</td><td>_______</td><td><div class="fill-blank"></div></td></tr>
+<tr><td>Amount owed</td><td>_______</td><td><div class="fill-blank"></div></td></tr>
+<tr><td>Value gap percentage</td><td>_______</td><td><div class="fill-blank"></div></td></tr>
+<tr><td>Time since last sale</td><td>_______</td><td><div class="fill-blank"></div></td></tr>
+</table>
+
+<h2>Exercise 7: Priority Leads Summary</h2>
+
+<p>After scoring, list your top 10 leads:</p>
+
+<table>
+<tr><th>#</th><th>Lead ID</th><th>Source</th><th>Address</th><th>Owner</th><th>Score</th><th>Priority</th></tr>
+<tr><td>1</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>Hot</td></tr>
+<tr><td>2</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>Hot</td></tr>
+<tr><td>3</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>High</td></tr>
+<tr><td>4</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>High</td></tr>
+<tr><td>5</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>High</td></tr>
+<tr><td>6</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>Medium</td></tr>
+<tr><td>7</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>Medium</td></tr>
+<tr><td>8</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>Medium</td></tr>
+<tr><td>9</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>Low</td></tr>
+<tr><td>10</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>Low</td></tr>
+</table>
+
+<!-- WEEK 3 EXERCISES -->
+<div class="week-section">
+<h2>WEEK 3 EXERCISES</h2>
+<p>Days 15-21: Launch Your Outreach</p>
+</div>
+
+<h2>Exercise 8: Outreach Channel Setup</h2>
+
+<div class="exercise-box">
+<h4>Channel 1: Direct Mail</h4>
+<p>Mail service used: _______________</p>
+<p>Cost per letter: $_______</p>
+<p>[ ] Created mail template</p>
+<p>[ ] Ordered mailing list or using scraped addresses</p>
+
+<h4>Channel 2: Cold Text/SMS</h4>
+<p>SMS platform used: _______________</p>
+<p>Cost per text: $_______</p>
+<p>[ ] Compliance checklist reviewed</p>
+<p>[ ] Text template created</p>
+<p>[ ] Contact list uploaded</p>
+
+<h4>Channel 3: Cold Calling</h4>
+<p>Phone system used: _______________</p>
+<p>[ ] Phone number set up (local or toll-free)</p>
+<p>[ ] Call script prepared</p>
+<p>[ ] Voicemail template recorded</p>
+
+<h4>Channel 4: RVM</h4>
+<p>RVM service used: _______________</p>
+<p>Cost per drop: $_______</p>
+<p>[ ] RVM script recorded</p>
+</div>
+
+<h2>Exercise 9: Message Customization</h2>
+
+<p>For each lead type, write a one-sentence opening that references their specific situation:</p>
+
+<div class="exercise-box">
+<h4>Probate Lead Opening:</h4>
+<p>"__________________________________________________"</p>
+
+<h4>Tax Deed Lead Opening:</h4>
+<p>"__________________________________________________"</p>
+
+<h4>Out-of-State Absentee Owner Opening:</h4>
+<p>"__________________________________________________"</p>
+
+<h4>Inherited Property Opening:</h4>
+<p>"__________________________________________________"</p>
+</div>
+
+<h2>Exercise 10: Outreach Tracker</h2>
+
+<p>Track your outreach activity for the first week:</p>
+
+<table>
+<tr><th>Date</th><th>Channel</th><th>Leads Contacted</th><th>Responses</th><th>Response Rate</th></tr>
+<tr><td>Day 15</td><td>_______</td><td>_______</td><td>_______</td><td>_______%</td></tr>
+<tr><td>Day 16</td><td>_______</td><td>_______</td><td>_______</td><td>_______%</td></tr>
+<tr><td>Day 17</td><td>_______</td><td>_______</td><td>_______</td><td>_______%</td></tr>
+<tr><td>Day 18</td><td>_______</td><td>_______</td><td>_______</td><td>_______%</td></tr>
+<tr><td>Day 19</td><td>_______</td><td>_______</td><td>_______</td><td>_______%</td></tr>
+<tr><td>Day 20</td><td>_______</td><td>_______</td><td>_______</td><td>_______%</td></tr>
+<tr><td>Day 21</td><td>_______</td><td>_______</td><td>_______</td><td>_______%</td></tr>
+</table>
+
+<p class="small-text"><strong>Week 3 Total:</strong> Contacts: _______ | Responses: _______ | Avg Response Rate: _______%</p>
+
+<!-- WEEK 4 EXERCISES -->
+<div class="week-section">
+<h2>WEEK 4 EXERCISES</h2>
+<p>Days 22-30: Pipeline Management & Offer Submission</p>
+</div>
+
+<h2>Exercise 11: Lead Qualification Log</h2>
+
+<p>For each lead that responds, complete this log:</p>
+
+<table>
+<tr><th>Lead ID</th><th>Contact Date</th><th>Motivation Level (1-5)</th><th>Property Condition</th><th>Timeline</th><th>Asking Price</th><th>Minimum Accept</th><th>Next Step</th></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td><td>_______</td></tr>
+</table>
+
+<h2>Exercise 12: Deal Analysis Worksheet</h2>
+
+<div class="exercise-box">
+<h4>Property: _______________________ | Lead ID: _______</h4>
+
+<h4>ARV (After Repair Value):</h4>
+<p>$_______________</p>
+
+<h4>Estimated Repair Costs:</h4>
+<p>$_______________</p>
+
+<h4>Holding Costs (taxes, insurance, utilities):</h4>
+<p>$_______________ for _______ months</p>
+
+<h4>Estimated Selling Costs (8-10% of ARV):</h4>
+<p>$_______________</p>
+
+<h4>Desired Profit:</h4>
+<p>$_______________</p>
+
+<h4>CALCULATED MAO:</h4>
+<p style="font-size: 20px; font-weight: bold; color: #276749;">$_______________</p>
+
+<h4>Opening Offer (MAO - 15%):</h4>
+<p>$_______________</p>
+
+<h4>Deal Confidence Score (1-10): _______</h4>
+<p>Notes: _______________________________________________</p>
+</div>
+
+<h2>Exercise 13: Offer Submission Log</h2>
+
+<table>
+<tr><th>Date</th><th>Property Address</th><th>Lead ID</th><th>Offer Price</th><th>Terms</th><th>Status</th></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>$_______</td><td>_______</td><td>[ ] Accepted [ ] Declined [ ] Pending</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>$_______</td><td>_______</td><td>[ ] Accepted [ ] Declined [ ] Pending</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>$_______</td><td>_______</td><td>[ ] Accepted [ ] Declined [ ] Pending</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>$_______</td><td>_______</td><td>[ ] Accepted [ ] Declined [ ] Pending</td></tr>
+<tr><td>_______</td><td>_______</td><td>_______</td><td>$_______</td><td>_______</td><td>[ ] Accepted [ ] Declined [ ] Pending</td></tr>
+</table>
+
+<h2>Exercise 14: 30-Day Summary</h2>
+
+<div class="exercise-box">
+<h4>Final Stats</h4>
+<p>Total leads collected: _______</p>
+<p>Leads contacted: _______</p>
+<p>Responses received: _______</p>
+<p>Response rate: _______%</p>
+<p>Qualified leads: _______</p>
+<p>Offers submitted: _______</p>
+<p>Offers accepted: _______</p>
+<p>Acceptance rate: _______%</p>
+
+<h4>What Worked Best</h4>
+<p>Best performing channel: _______________________________________________</p>
+<p>Best message type: _______________________________________________</p>
+<p>Best lead source: _______________________________________________</p>
+
+<h4>What to Improve</h4>
+<p>_______________________________________________</p>
+<p>_______________________________________________</p>
+
+<h4>Biggest Learnings</h4>
+<p>_______________________________________________</p>
+<p>_______________________________________________</p>
+
+<h4>Next Month Goals</h4>
+<p>Leads to collect: _______ | Offers to submit: _______ | Deals to close: _______</p>
+</div>
+
+<h2>Exercise 15: Ongoing System Checklist</h2>
+
+<div class="checklist">
+<h4>Daily Habits (5-10 minutes)</h4>
+<p>[ ] Check for new leads from scraper</p>
+<p>[ ] Respond to all inquiries</p>
+<p>[ ] Log outreach activity</p>
+
+<h4>Weekly Habits (1-2 hours)</h4>
+<p>[ ] Score and review new leads</p>
+<p>[ ] Send follow-up sequences</p>
+<p>[ ] Update pipeline status</p>
+<p>[ ] Analyze response rates</p>
+
+<h4>Monthly Habits (half-day)</h4>
+<p>[ ] Review closed deals</p>
+<p>[ ] Adjust scoring weights</p>
+<p>[ ] Optimize messaging</p>
+<p>[ ] Explore new data sources</p>
+</div>
+
+<footer>
+<p>This workbook is for personal use. Keep it updated and reference it regularly as you build your off-market lead generation system.</p>
+</footer>
+
+</body>
+</html>

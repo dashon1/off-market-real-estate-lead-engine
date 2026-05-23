@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Market Lead Engine - Checklists</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.7; color: #333; max-width: 800px; margin: 0 auto; padding: 40px 20px; background: #fff; }
+        h1 { font-size: 26px; color: #1a365d; border-bottom: 3px solid #2b6cb0; padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { font-size: 20px; color: #2c5282; margin-top: 35px; margin-bottom: 15px; padding-left: 15px; border-left: 4px solid #4299e1; }
+        h3 { font-size: 16px; color: #2d3748; margin-top: 20px; margin-bottom: 10px; }
+        .checklist-item { display: flex; align-items: flex-start; margin: 12px 0; padding: 10px; background: #f7fafc; border-radius: 6px; }
+        .checkbox { width: 24px; height: 24px; border: 2px solid #2b6cb0; border-radius: 4px; margin-right: 12px; flex-shrink: 0; }
+        .checklist-text { flex: 1; }
+        .week-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px 25px; border-radius: 8px; margin: 30px 0 20px 0; }
+        .week-header h2 { color: white; border: none; padding: 0; margin: 0; }
+        .week-header p { color: rgba(255,255,255,0.9); margin-top: 5px; }
+        .note-box { background: #fffaf0; border-left: 4px solid #ed8936; padding: 15px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+        .note-box strong { color: #c05621; }
+        .tip-box { background: #ebf8ff; border-left: 4px solid #4299e1; padding: 15px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+        footer { margin-top: 50px; padding-top: 20px; border-top: 2px solid #e2e8f0; font-size: 12px; color: #718096; text-align: center; }
+    </style>
+</head>
+<body>
+
+<h1>OFF-MARKET LEAD ENGINE<br><span style="font-size:16px; font-weight:normal;">Complete Verification Checklists</span></h1>
+
+<p>Use these checklists to ensure every step in your off-market system is complete before moving to the next phase.</p>
+
+<!-- WEEK 1 CHECKLIST -->
+<div class="week-header">
+<h2>WEEK 1 CHECKLIST</h2>
+<p>Data Infrastructure & Scraper Setup</p>
+</div>
+
+<h2>Step 1: County Data Portal Identification</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Identified Clerk of Court records portal</strong> — URL: ____________________</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Identified Tax Collector or Comptroller data source</strong> — URL: ____________________</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Identified County Recorder or GIS portal</strong> — URL: ____________________</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Documented all data sources in spreadsheet</strong> — Source count: _______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Confirmed update frequency for each source</strong> (daily/weekly/monthly)</div>
+</div>
+
+<h2>Step 2: Scraping Infrastructure Setup</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Installed Python 3.8+ OR created n8n account</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Installed required packages</strong> (requests, beautifulsoup4, pandas, selenium/playwright)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Tested connection to first data source</strong> — Success: [ ] Yes [ ] No</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Successfully extracted sample data</strong> — Records collected: _______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Set up automated daily scraping schedule</strong> — Time: _______ AM/PM</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Configured error notifications</strong> (email alert if scraper fails)</div>
+</div>
+
+<h2>Step 3: Database Configuration</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Created lead database (Google Sheets/Airtable/SQLite)</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Added all required fields</strong> — Lead ID, Source, Owner Name, Address, Date Found, Score, Status</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Set up data validation rules</strong> (prevent duplicate entries, required fields)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Connected scraper output to database</strong> — Automation working: [ ] Yes [ ] No</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Created backup system</strong> (daily export or version history)</div>
+</div>
+
+<div class="note-box">
+<strong>Week 1 Sign-Off:</strong> Before proceeding to Week 2, confirm that your scraper is running daily without supervision, and your database is receiving new leads automatically.
+</div>
+
+<!-- WEEK 2 CHECKLIST -->
+<div class="week-header">
+<h2>WEEK 2 CHECKLIST</h2>
+<p>Data Cleaning & Lead Scoring</p>
+</div>
+
+<h2>Step 4: Institutional Buyer Filter</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Created list of institutional buyer patterns</strong> (banks, trusts, LLCs, government entities)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Ran filter against all raw leads</strong> — Removed: _______ records</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Manually reviewed false positives</strong> (names that match but aren't institutions)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Verified clean list maintains quality data</strong></div>
+</div>
+
+<h2>Step 5: Geographic Targeting</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Extracted state/location from mailing addresses</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Identified out-of-state owners</strong> — Count: _______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Flagged absentee owners</strong> — Count: _______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Verified address accuracy</strong> (no obviously invalid addresses)</div>
+</div>
+
+<h2>Step 6: GIS Data Enrichment</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Located county GIS or property appraiser data download</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Downloaded or connected to GIS dataset</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Merged GIS data with lead list</strong> — Match rate: _______%</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Calculated value gap (ARV vs assessed)</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Added price-per-square-foot calculations</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Flagged properties with high value gap potential</strong> — Count: _______</div>
+</div>
+
+<h2>Step 7: Scoring System Implementation</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Defined scoring weights for each factor</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Built automated scoring script/formula</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Applied scores to all leads</strong> — Range: _______ to _______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Categorized leads into priority tiers</strong> (Hot/High/Medium/Low)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Reviewed top-scored leads for accuracy</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Documented scoring methodology</strong> for future calibration</div>
+</div>
+
+<div class="note-box">
+<strong>Week 2 Sign-Off:</strong> Before proceeding to Week 3, you should have a cleaned, scored list with Hot and High priority leads ready for outreach.
+</div>
+
+<!-- WEEK 3 CHECKLIST -->
+<div class="week-header">
+<h2>WEEK 3 CHECKLIST</h2>
+<p>Omnichannel Outreach Activation</p>
+</div>
+
+<h2>Step 8: Outreach Channel Setup</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Direct Mail:</strong> Created letter templates for each lead type</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Direct Mail:</strong> Set up mail service account (SendPro, Lob, etc.)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Direct Mail:</strong> Verified mailing addresses are deliverable</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>SMS/Text:</strong> Signed up for TCPA-compliant SMS platform</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>SMS/Text:</strong> Created text message templates</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Calling:</strong> Set up business phone number (local or toll-free)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Calling:</strong> Prepared call script and qualification questions</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>RVM:</strong> Recorded 30-second voicemail drop</div>
+</div>
+
+<h2>Step 9: Compliance Verification</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Reviewed TCPA requirements for your state</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Verified DNC (Do Not Call) list scrubbing process</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Created opt-out handling procedure</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Set up internal do-not-call list in CRM</strong></div>
+</div>
+
+<h2>Step 10: Outreach Sequence Launch</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Prioritized top 50-100 leads for first outreach batch</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Personalized message content</strong> (reference property address, owner name)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Scheduled Day 1 mail drop</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Loaded SMS list for Day 7 text</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Scheduled follow-up sequence</strong> (Day 3 RVM, Day 5 call, Day 10 mail, etc.)</div>
+</div>
+
+<h2>Step 11: Response Tracking Setup</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Created response tracking fields</strong> (response date, channel, quality)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Set up notification system for incoming responses</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Established daily response review routine</strong></div>
+</div>
+
+<div class="note-box">
+<strong>Week 3 Sign-Off:</strong> Before proceeding to Week 4, you should have sent initial outreach to top priority leads and be actively tracking responses.
+</div>
+
+<!-- WEEK 4 CHECKLIST -->
+<div class="week-header">
+<h2>WEEK 4 CHECKLIST</h2>
+<p>Pipeline Management & Offer Structuring</p>
+</div>
+
+<h2>Step 12: Pipeline Review</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Reviewed all incoming responses</strong> — Response count: _______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Moved responded leads to appropriate pipeline stage</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Scheduled follow-up calls with warm leads</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Documented conversation notes in CRM</strong></div>
+</div>
+
+<h2>Step 13: Lead Qualification</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Completed qualification call for each responding lead</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Verified property details</strong> (address, condition, ownership)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Confirmed motivation level and timeline</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Discussed pricing expectations</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Qualified leads moved to "Under Review" stage</strong> — Count: _______</div>
+</div>
+
+<h2>Step 14: Deal Analysis</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>For each qualified lead, gathered:</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>ARV estimate</strong> (comparable sales or county data)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Repair estimate</strong> (walk-through or photo review)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Holding cost estimate</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Calculated Maximum Allowable Offer (MAO)</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Determined opening offer price</strong> (MAO minus negotiation room)</div>
+</div>
+
+<h2>Step 15: Offer Submission</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Prepared written offer document</strong> (using template from Templates file)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Including proof of funds or pre-approval letter</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Submitted Offer #1</strong> — Property: ____________________ | Price: $_______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Submitted Offer #2</strong> — Property: ____________________ | Price: $_______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Submitted Offer #3</strong> — Property: ____________________ | Price: $_______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Tracking offer responses</strong> (accepted/declined/pending)</div>
+</div>
+
+<div class="note-box">
+<strong>30-Day Goal Check:</strong> You should have submitted at least 3 offers by Day 30. If you have fewer, focus on moving more leads through the pipeline quickly.
+</div>
+
+<!-- FINAL SYSTEM CHECKLIST -->
+<div class="week-header">
+<h2>ONGOING SYSTEM CHECKLIST</h2>
+<p>Weekly & Monthly Maintenance</p>
+</div>
+
+<h2>Weekly Tasks (1-2 hours)</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Review new leads from scraper</strong> — New leads this week: _______</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Score and categorize new leads</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Follow up with non-responsive leads</strong> (continue sequence)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Update pipeline status for all active leads</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Analyze response rates by channel</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Document what's working and what isn't</strong></div>
+</div>
+
+<h2>Monthly Tasks (half-day)</h2>
+
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Review closed deals</strong> (wins and losses)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Adjust scoring weights based on conversion data</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Optimize outreach messaging</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Explore new data sources</strong> (expand lead pool)</div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Review and optimize budget allocation</strong></div>
+</div>
+<div class="checklist-item">
+<div class="checkbox"></div>
+<div class="checklist-text"><strong>Set goals for next month</strong></div>
+</div>
+
+<div class="tip-box">
+<strong>Success Habits:</strong> Consistent execution beats occasional intensity. Spend 15 minutes daily on lead management rather than 2 hours once a week. Your pipeline stays warm, and you catch opportunities faster.
+</div>
+
+<footer>
+<p>Use these checklists weekly to maintain system integrity. Update and customize as you learn what works in your specific market.</p>
+</footer>
+
+</body>
+</html>

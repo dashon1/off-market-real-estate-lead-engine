@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-Market Real Estate Lead Engine - Main Blueprint</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+        }
+        h1 {
+            font-size: 28px;
+            color: #1a365d;
+            border-bottom: 3px solid #2b6cb0;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 22px;
+            color: #2c5282;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 4px solid #4299e1;
+        }
+        h3 {
+            font-size: 18px;
+            color: #2d3748;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .week-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 30px 0 20px 0;
+        }
+        .week-header h2 {
+            color: white;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        .week-header p {
+            color: rgba(255,255,255,0.9);
+            margin-top: 5px;
+        }
+        .day-block {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        .day-block h4 {
+            color: #2b6cb0;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            margin: 15px 0;
+            white-space: pre;
+        }
+        .tip-box {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .tip-box strong {
+            color: #2c5282;
+        }
+        .warning-box {
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .warning-box strong {
+            color: #c05621;
+        }
+        .checklist {
+            background: #f0fff4;
+            border: 1px solid #c6f6d5;
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        th {
+            background: #2b6cb0;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+        }
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        .section-number {
+            display: inline-block;
+            background: #4299e1;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #e2e8f0;
+            font-size: 12px;
+            color: #718096;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>OFF-MARKET REAL ESTATE LEAD ENGINE<br><span style="font-size:18px; font-weight:normal;">Your 30-Day Blueprint to Building a Proprietary Pipeline of Motivated Sellers</span></h1>
+
+<!-- SECTION 1: WEEK 1 -->
+<div class="week-header">
+<h2>WEEK 1: Build Scraper</h2>
+<p>Days 1-7: Data Infrastructure & Scraper Setup</p>
+</div>
+
+<h2><span class="section-number">1</span> Identifying Your County Data Portal</h2>
+
+<p>The foundation of your off-market lead engine is accessing public data that most investors ignore. Government portals publish tax deeds, probate filings, and pre-foreclosure notices daily—but most investors never check them because they require manual effort. Your job is to automate that effort.</p>
+
+<h3>Step 1.1: Locate Your County's Public Data Sources</h3>
+
+<p>Not all counties publish data the same way. Start by identifying which of these three sources your county uses:</p>
+
+<ol>
+<li><strong>Clerk of Court</strong> — Handles court records including probate filings, lis pendens, and foreclosure proceedings</li>
+<li><strong>Comptroller or Tax Collector</strong> — Maintains the List of Lands Available (tax deeds) and back tax records</li>
+<li><strong>County Recorder</strong> — Keeps property transfer records, deed filings, and ownership history</li>
+</ol>
+
+<h3>Step 1.2: Find Your County's Specific Portal</h3>
+
+<p>Search for "[Your County] clerk of court public records" or "[Your County] tax collector list of lands available." Most counties have one of these formats:</p>
+
+<ul>
+<li>Dedicated public records search portal (often via "Xsoft" or "ONbase" software)</li>
+<li>FTP or downloadable CSV/Excel files of tax deed listings</li>
+<li>PDF publication updated weekly or monthly</li>
+<li>Real-time search interface for court filings</li>
+</ul>
+
+<div class="tip-box">
+<strong>Pro Tip:</strong> If your county has a "List of Lands Available" page, bookmark it. This is typically updated weekly and contains properties going to tax sale. Check it every Monday morning for new additions.
+</div>
+
+<h3>Step 1.3: Document Your Data Sources</h3>
+
+<p>Create a simple spreadsheet with these columns:</p>
+
+<table>
+<tr><th>Source Name</th><th>URL/Location</th><th>Update Frequency</th><th>Data Fields Available</th><th>Access Method</th></tr>
+<tr><td>County Tax Collector</td><td>taxcollector.county.gov</td><td>Weekly</td><td>Owner, Address, Tax Amount, PIN</td><td>Search portal</td></tr>
+<tr><td>Clerk of Court</td><td>clerk.county.gov/probate</td><td>Daily</td><td>Filing Date, Case#, Decedent, Heirs</td><td>Public search</td></tr>
+<tr><td>County Recorder</td><td>recorder.county.gov</td><td>Daily</td><td>Deed, Grantor, Grantee, Date</td><td>Search portal</td></tr>
+</table>
+
+<!-- SECTION 2: WEEK 1 CONTINUED -->
+<h2><span class="section-number">2</span> Setting Up Your Scraping Infrastructure</h2>
+
+<p>Once you know where your data lives, you need to set up automated collection. This section walks you through two approaches: Python (for technical users) and n8n (for no-code users).</p>
+
+<h3>Approach A: Python Scraper Setup (Technical)</h3>
+
+<p>If you're comfortable with code, use Python with BeautifulSoup for static pages or Playwright for dynamic/JavaScript-loaded pages.</p>
+
+<h4>Prerequisites:</h4>
+<ul>
+<li>Python 3.8+ installed</li>
+<li>pip package manager</li>
+<li>Basic understanding of HTML structure</li>
+</ul>
+
+<h4>Installation:</h4>
+
+<div class="code-block"># Install required packages
+pip install requests beautifulsoup4 pandas selenium webdriver-manager
+
+# For dynamic pages (JavaScript rendered)
+pip install playwright
+playwright install chromium</div>
+
+<h4>Basic Scraper Template:</h4>
+
+<div class="code-block">import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+from datetime import datetime
+import time
+
+class PublicDataScraper:
+    def __init__(self, county_name):
+        self.county_name = county_name
+        self.data = []
+
+    def fetch_tax_deeds(self, url):
+        """Fetch tax deed listings from county portal"""
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+        response = requests.get(url, headers=headers)
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        # Customize selectors based on your county's page structure
+        rows = soup.select('table.properties-list tr')
+
+        for row in rows:
+            property_data = {
+                'source': 'tax_deed',
+                'scrape_date': datetime.now().strftime('%Y-%m-%d'),
+                'county': self.county_name,
+                'owner_name': row.select_one('.owner-name').text.strip(),
+                'property_address': row.select_one('.address').text.strip(),
+                'tax_id': row.select_one('.tax-id').text.strip(),
+                'amount_due': row.select_one('.amount-due').text.strip(),
+                'auction_date': row.select_one('.auction-date').text.strip()
+            }
+            self.data.append(property_data)
+
+        return self.data
+
+    def fetch_probate_filings(self, url):
+        """Fetch probate case listings"""
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+        response = requests.get(url, headers=headers)
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        # Customize selectors for probate docket
+        cases = soup.select('.case-row')
+
+        for case in cases:
+            case_data = {
+                'source': 'probate',
+                'scrape_date': datetime.now().strftime('%Y-%m-%d'),
+                'county': self.county_name,
+                'case_number': case.select_one('.case-number').text.strip(),
+                'decendent_name': case.select_one('.decedent').text.strip(),
+                'filing_date': case.select_one('.filing-date').text.strip(),
+                'attorney': case.select_one('.attorney').text.strip() if case.select_one('.attorney') else 'N/A'
+            }
+            self.data.append(case_data)
+
+        return self.data
+
+    def save_to_csv(self, filename):
+        """Export collected data to CSV"""
+        df = pd.DataFrame(self.data)
+        df.to_csv(filename, index=False)
+        print(f"Saved {len(self.data)} records to {filename}")
+
+# Usage Example
+scraper = PublicDataScraper("Miami-Dade")
+scraper.fetch_tax_deeds("https://taxcollector.county.gov/tax-deeds")
+scraper.fetch_probate_filings("https://clerk.county.gov/probate-dockets")
+scraper.save_to_csv("daily_leads.csv")</div>
+
+<h4>Scheduling Daily Runs:</h4>
+
+<div class="code-block"># Create a cron job or scheduled task
+# On Mac/Linux - add to crontab:
+# 0 6 * * * /usr/bin/python3 /path/to/scraper.py
+
+# On Windows - use Task Scheduler to run:
+# python.exe C:\path\to\scraper.py</div>
+
+<div class="tip-box">
+<strong>Pro Tip:</strong> Add random delays (2-5 seconds) between requests to avoid triggering rate limits. Also, always include a User-Agent header to appear as a normal browser.
+</div>
+
+<h3>Approach B: n8n Workflow Setup (No-Code)</h3>
+
+<p>If you prefer visual workflows, n8n is a free, open-source automation tool that can handle most scraping tasks without code.</p>
+
+<h4>Step 1: Install n8n</h4>
+
+<div class="code-block"># Using Docker
+docker run -d --name n8n -p 5678:5678 n8nio/n8n
+
+# Or using npm
+npm install -g n8n
+n8n start</div>
+
+<h4>Step 2: Build Your First Workflow</h4>
+
+<p>Create a new workflow with these nodes:</p>
+
+<ol>
+<li><strong>Schedule Trigger</strong> — Run daily at 6 AM</li>
+<li><strong>HTTP Request</strong> — Fetch your county's data page</li>
+<li><strong>HTML Extract</strong> — Pull specific data fields (CSS selector)</li>
+<li><strong>Google Sheets</strong> — Append new leads to your tracking sheet</li>
+<li><strong>Notification</strong> — Alert you when new leads are found</li>
+</ol>
+
+<div class="warning-box">
+<strong>Important:</strong> Some county sites require JavaScript rendering. If your page loads dynamically, use Playwright nodes in n8n or switch to the Python approach for those specific sources.
+</div>
+
+<h3>Step 1.4: Building Your Local Database</h3>
+
+<p>Whether you use Python or n8n, you'll need a centralized storage system. Options:</p>
+
+<table>
+<tr><th>Tool</th><th>Best For</th><th>Cost</th><th>Setup Complexity</th></tr>
+<tr><td>Google Sheets</td><td>Small lists, manual review</td><td>Free</td><td>Low</td></tr>
+<tr><td>Airtable</td><td>Visual kanban, automations</td><td>Free tier available</td><td>Low</td></tr>
+<tr><td>SQLite</td><td>Technical users, larger datasets</td><td>Free</td><td>Medium</td></tr>
+<tr><td>PostgreSQL</td><td>Enterprise scale, multiple users</td><td>Free (self-hosted)</td><td>High</td></tr>
+</table>
+
+<p>For most investors starting out, Google Sheets or Airtable provides the best balance of simplicity and functionality. I recommend Airtable for its built-in kanban view which you'll use in Week 4.</p>
+
+<h3>Step 1.5: Essential Database Fields</h3>
+
+<p>Set up your lead database with these minimum required fields:</p>
+
+<table>
+<tr><th>Field Name</th><th>Type</th><th>Purpose</th></tr>
+<tr><td>Lead ID</td><td>Auto-number</td><td>Unique identifier</td></tr>
+<tr><td>Source</td><td>Single select (Tax Deed / Probate / Pre-foreclosure)</td><td>Track where lead came from</td></tr>
+<tr><td>Owner Name</td><td>Text</td><td>Primary contact name</td></tr>
+<tr><td>Property Address</td><td>Text</td><td>Subject property location</td></tr>
+<tr><td>Mailing Address</td><td>Text</td><td>Owner's mailing address (if different)</td></tr>
+<tr><td>Phone</td><td>Phone</td><td>Contact number (if available)</td></tr>
+<tr><td>Email</td><td>Email</td><td>Contact email (if available)</td></tr>
+<tr><td>Source URL</td><td>URL</td><td>Link back to original record</td></tr>
+<tr><td>Date Found</td><td>Date</td><td>When lead was scraped</td></tr>
+<tr><td>Scrape Notes</td><td>Long text</td><td>Any relevant details from source</td></tr>
+<tr><td>Motivation Score</td><td>Number (1-10)</td><td>Calculated in Week 2</td></tr>
+<tr><td>Status</td><td>Single select</td><td>Pipeline stage (New / Contacted / Qualified / Negotiating / Dead)</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- WEEK 2 -->
+<div class="week-header">
+<h2>WEEK 2: Clean & Score</h2>
+<p>Days 8-14: Data Cleaning & Automated Lead Scoring</p>
+</div>
+
+<h2><span class="section-number">3</span> Data Cleaning Protocols</h2>
+
+<p>Raw scraped data is messy. Before you can score and contact leads, you need to filter out noise and focus on genuinely motivated sellers. This week transforms your raw list into an actionable pipeline.</p>
+
+<h3>Step 3.1: Filter Out Institutional Buyers</h3>
+
+<p>The first cleaning pass removes corporate entities that buy at auction but don't sell to individual investors:</p>
+
+<h4>Exclusion Patterns:</h4>
+
+<ul>
+<li>Bank names (Chase, Wells Fargo, Bank of America, etc.)</li>
+<li>Trust companies (XYZ Trust, [Name] Family Trust)</li>
+<li>REIT identifiers (REIT, Real Estate Investment Trust)</li>
+<li>LLC patterns (* LLC, * Limited Liability Company)</li>
+<li>Government entities (County, State, HUD, VA)</li>
+<li>National lenders (Freedom Mortgage, Quicken Loans, etc.)</li>
+</ul>
+
+<h4>Python Filter Script:</h4>
+
+<div class="code-block">import pandas as pd
+
+def filter_institutional(df):
+    """Remove institutional buyers from lead list"""
+
+    # Patterns to exclude
+    exclude_patterns = [
+        'BANK', 'TRUST', 'LLC', 'LTD', 'INC', 'CORP',
+        'MORTGAGE', 'HUD', 'VA', 'FANNIE', 'FREDDIE',
+        'NATIONSTAR', 'WELLS', 'CHASE', 'BANK OF AMERICA',
+        'FREEDOM MORTGAGE', 'OCWEN', 'BAYVIEW', 'SELENE',
+        'U S BANK', 'US BANK', 'HSBC', 'CITIBANK'
+    ]
+
+    # Create exclusion pattern
+    pattern = '|'.join(exclude_patterns)
+
+    # Filter out matches (case-insensitive)
+    mask = ~df['owner_name'].str.upper().str.contains(pattern, na=False)
+
+    return df[mask].copy()
+
+# Usage
+clean_leads = filter_institutional(raw_leads)
+print(f"Removed {len(raw_leads) - len(clean_leads)} institutional buyers")
+print(f"Remaining: {len(clean_leads)} potential seller leads")</div>
+
+<h3>Step 3.2: Identify Out-of-State Owners</h3>
+
+<p>Out-of-state owners are prime targets because they:</p>
+
+<ul>
+<li>Can't easily manage distant properties</li>
+<li>Often have inherited properties they want to liquidate</li>
+<li>Face higher transaction costs when managing remotely</li>
+<li>Are more motivated to sell quickly</li>
+</ul>
+
+<h4>State Detection Method:</h4>
+
+<div class="code-block">import re
+
+def extract_state_from_address(address):
+    """Extract state abbreviation from mailing address"""
+
+    # Common patterns for state at end of address
+    patterns = [
+        r',\s*([A-Z]{2})\s+\d{5}',  # ", CA 90210"
+        r',\s*([A-Z]{2})\s+\d{5}-\d{4}',  # ", NY 10001-1234"
+        r'\b([A-Z]{2})\b$',  # State at end "Los Angeles CA"
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, str(address))
+        if match:
+            return match.group(1)
+
+    return 'UNKNOWN'
+
+def flag_out_of_state(df, target_state='FL'):
+    """Flag owners with mailing addresses outside target market"""
+
+    df['owner_state'] = df['mailing_address'].apply(extract_state_from_address)
+    df['is_out_of_state'] = df['owner_state'] != target_state
+
+    return df
+
+# Usage
+leads_with_state = flag_out_of_state(clean_leads, target_state='FL')
+out_of_state = leads_with_state[leads_with_state['is_out_of_state'] == True]
+print(f"Found {len(out_of_state)} out-of-state owners in {target_state} market")</div>
+
+<h3>Step 3.3: Cross-Reference with GIS Data</h3>
+
+<p>Gravity (GIS) mapping databases contain property characteristics that help identify high-potential deals. Many counties publish assessor data with:</p>
+
+<ul>
+<li>Assessed value vs. market value gaps</li>
+<li>Building square footage and lot size</li>
+<li>Year built and building condition codes</li>
+<li>Owner-occupancy status</li>
+<li>Sales history and price trends</li>
+</ul>
+
+<h4>Finding Free GIS Data:</h4>
+
+<ol>
+<li>Search "[Your County] GIS portal" or "[Your County] property appraiser data"</li>
+<li>Look for "Downloads" or "Public Data" sections</li>
+<li>Many counties offer CSV or Excel exports of property characteristics</li>
+<li>Some integrate directly with Google Sheets via add-ons</li>
+</ol>
+
+<h4>GIS Enrichment Script:</h4>
+
+<div class="code-block">import pandas as pd
+
+def enrich_with_gis(leads_df, gis_data_path):
+    """Merge scraped leads with GIS property data"""
+
+    # Load GIS data
+    gis_df = pd.read_csv(gis_data_path)
+
+    # Assuming both have a common identifier (parcel number or address)
+    enriched = leads_df.merge(
+        gis_df[['parcel_id', 'assessed_value', 'market_value',
+                'sqft', 'year_built', 'last_sale_price', 'last_sale_date']],
+        left_on='tax_id',
+        right_on='parcel_id',
+        how='left'
+    )
+
+    return enriched
+
+def calculate_deal_potential(enriched_df):
+    """Score properties based on GIS data"""
+
+    # Value gap score (higher gap = more potential)
+    enriched_df['value_gap'] = (
+        enriched_df['market_value'] - enriched_df['assessed_value']
+    )
+    enriched_df['value_gap_pct'] = (
+        enriched_df['value_gap'] / enriched_df['assessed_value'] * 100
+    )
+
+    # Price per square foot opportunity
+    enriched_df['price_per_sqft'] = (
+        enriched_df['last_sale_price'] / enriched_df['sqft']
+    )
+
+    # Time since last sale (older = potential motivated seller)
+    enriched_df['years_since_sale'] = (
+        pd.to_datetime('today') - pd.to_datetime(enriched_df['last_sale_date'])
+    ).dt.days / 365
+
+    return enriched_df
+
+# Usage
+enriched_leads = enrich_with_gis(clean_leads, 'county_gis_data.csv')
+scored_leads = calculate_deal_potential(enriched_leads)</div>
+
+<div class="tip-box">
+<strong>Pro Tip:</strong> Properties with high value gaps (market value 50%+ above assessed) often indicate tax protests, inheritance situations, or properties that haven't been updated in county records—good buying opportunities.
+</div>
+
+<h2><span class="section-number">4</span> Lead Scoring Methodology</h2>
+
+<p>Not all leads are equal. A scoring system helps you prioritize effort on the most motivated sellers. This creates a consistent framework for decision-making.</p>
+
+<h3>Step 4.1: Motivation Indicators</h3>
+
+<p>Score each lead 1-5 on these dimensions (higher = better):</p>
+
+<table>
+<tr><th>Indicator</th><th>Score 1</th><th>Score 3</th><th>Score 5</th></tr>
+<tr><td>Time on Market</td><td>Recently listed</td><td>6-12 months</td><td>12+ months</td></tr>
+<tr><td>Owner Location</td><td>In-state, local</td><td>2-3 states away</td><td>Out-of-state or unknown</td></tr>
+<tr><td>Property Type</td><td>Standard residential</td><td>Multi-unit or lot</td><td>Probate, inherited, distress</td></tr>
+<tr><td>Financial Pressure</td><td>Unknown</td><td>Back taxes owed</td><td>Pre-foreclosure, tax sale</td></tr>
+<tr><td>Equity Position</td><td>Low or negative</td><td>Mixed data</td><td>High equity potential</td></tr>
+</table>
+
+<h3>Step 4.2: Scoring Automation</h3>
+
+<div class="code-block">import pandas as pd
+
+def score_leads(df):
+    """Apply scoring algorithm to lead list"""
+
+    scores = []
+
+    for idx, row in df.iterrows():
+        score = 0
+
+        # Time on market (from public records)
+        # Using days since scraped as proxy
+        days_found = (pd.to_datetime('today') - pd.to_datetime(row['date_found'])).days
+        if days_found > 365: score += 5
+        elif days_found > 180: score += 3
+        elif days_found > 90: score += 1
+
+        # Out-of-state owner
+        if row.get('is_out_of_state', False): score += 5
+        elif row.get('owner_state', 'UNKNOWN') != 'UNKNOWN': score += 1
+
+        # Source type scoring
+        source_scores = {
+            'tax_deed': 5,  # Highest motivation
+            'pre-foreclosure': 4,
+            'probate': 3,
+            'auction': 2
+        }
+        score += source_scores.get(row.get('source', '').lower(), 1)
+
+        # Amount owed (higher debt = higher motivation)
+        try:
+            amount_owed = float(str(row.get('amount_due', '0')).replace('$', '').replace(',', ''))
+            if amount_owed > 10000: score += 5
+            elif amount_owed > 5000: score += 3
+            elif amount_owed > 0: score += 1
+        except:
+            pass
+
+        # Value gap (if available)
+        try:
+            gap_pct = float(row.get('value_gap_pct', 0))
+            if gap_pct > 50: score += 5
+            elif gap_pct > 25: score += 3
+            elif gap_pct > 0: score += 1
+        except:
+            pass
+
+        # Out-of-state absentee owner flag
+        if row.get('absentee_owner', False): score += 3
+
+        scores.append(score)
+
+    df['motivation_score'] = scores
+
+    # Categorize
+    df['priority'] = pd.cut(
+        df['motivation_score'],
+        bins=[0, 10, 18, 25, 100],
+        labels=['Low', 'Medium', 'High', 'Hot']
+    )
+
+    return df
+
+# Usage
+scored_leads = score_leads(enriched_leads)
+print(scored_leads['priority'].value_counts())</div>
+
+<h3>Step 4.3: Manual Review Checkpoints</h3>
+
+<p>Automated scoring handles volume, but manual review catches nuance. Set up a weekly review ritual:</p>
+
+<div class="checklist">
+<strong>Weekly Review Checklist:</strong>
+<ul>
+<li>Review top 20 "Hot" leads for accuracy and contact info</li>
+<li>Verify addresses exist and are valid</li>
+<li>Check owner name spelling and search for variations</li>
+<li>Flag any leads with obvious errors for re-scraping</li>
+<li>Note patterns in your scoring (what's working, what's not)</li>
+<li>Adjust scoring weights based on response rates (Week 3)</li>
+</ul>
+</div>
+
+<div class="page-break"></div>
+
+<!-- WEEK 3 -->
+<div class="week-header">
+<h2>WEEK 3: Launch Outreach</h2>
+<p>Days 15-21: Omnichannel Cold Outreach Activation</p>
+</div>
+
+<h2><span class="section-number">5</span> Messaging Frameworks</h2>
+
+<p>The difference between getting ignored and getting a response often comes down to how you frame your message. Motivated sellers don't want to be sold—they want to solve a problem.</p>
+
+<h3>Step 5.1: Understanding Seller Pain Points</h3>
+
+<p>Before writing any message, internalize these common motivations:</p>
+
+<ul>
+<li><strong>Probate sellers</strong> — Overwhelmed by legal process, want to close quickly, don't want to manage property</li>
+<li><strong>Tax-delinquent owners</strong> — Facing pressure from county, need to clear back taxes, embarrassed about situation</li>
+<li><strong>Absentee owners</strong> — Can't manage distant property, costly to maintain, tired of dealing with tenants or empty homes</li>
+<li><strong>Inherited property owners</strong> — Don't want the property, live far away, unclear what to do</li>
+<li><strong>Divorce or life-change situations</strong> — Need fast sale to move on, emotionally drained</li>
+</ul>
+
+<h3>Step 5.2: Core Message Principles</h3>
+
+<ol>
+<li><strong>Lead with empathy, not pitch</strong> — Acknowledge their situation before offering help</li>
+<li><strong>Focus on them, not you</strong> — "I help people who..." not "I buy houses"</li>
+<li><strong>Reduce friction, not create it</strong> — Make responding easy and low-commitment</li>
+<li><strong>Be specific, not generic</strong> — Reference their actual situation when possible</li>
+<li><strong>Create value before asking</strong> — Offer useful information, not just a sales pitch</li>
+</ol>
+
+<h3>Step 5.3: The Five Outreach Channels</h3>
+
+<h4>Channel 1: Direct Mail (Letters)</h4>
+
+<p>Highest response rates for motivated sellers. Physical mail stands out in a digital world.</p>
+
+<p><strong>Key elements:</strong></p>
+<ul>
+<li>Handwritten envelope (or handwritten-style printing)</li>
+<li>Personal letter (one page, 250-300 words)</li>
+<li>Self-mailer brochure option for follow-up</li>
+<li>Return envelope included</li>
+</ul>
+
+<p><strong>Timing:</strong> Send first letter Day 1, follow-up Day 7, final letter Day 14</p>
+
+<h4>Channel 2: Cold Text/SMS</h4>
+
+<p>High open rates (98% for texts) but requires compliance. Best for immediate response situations.</p>
+
+<p><strong>Key elements:</strong></p>
+<ul>
+<li>Personalized first line (their name or property address)</li>
+<li>Short message (under 160 characters for single SMS)</li>
+<li>Clear CTA (reply Y, call, or visit link)</li>
+<li>Compliance disclaimer when required</li>
+</ul>
+
+<p><strong>Timing:</strong> Send between 10 AM - 6 PM local time, avoid Mondays and weekends</p>
+
+<h4>Channel 3: Cold Calling</h4>
+
+<p>Highest conversion when done right, but most avoided. Focus on building rapport, not selling.</p>
+
+<p><strong>Key elements:</strong></p>
+<ul>
+<li>Research notes visible on screen before call</li>
+<li>Natural conversation opener (not a script)</li>
+<li>Focus on listening, not talking</li>
+<li>Set clear next step before hanging up</li>
+</ul>
+
+<p><strong>Timing:</strong> Best days: Tuesday-Thursday, times: 9-11 AM, 2-4 PM</p>
+
+<h4>Channel 4: Email</h4>
+
+<p>Lowest cost, but also lowest response rates. Use for nurture sequences, not cold outreach.</p>
+
+<p><strong>Key elements:</strong></p>
+<ul>
+<li>Catchy subject line (their address or situation as hook)</li>
+<li>Short paragraphs (3-4 sentences max)</li>
+<li>Single clear CTA</li>
+<li>Mobile-optimized</li>
+</ul>
+
+<p><strong>Timing:</strong> Tuesday-Thursday mornings, test different send times</p>
+
+<h4>Channel 5: RVM (Ringless Voicemail)</h4>
+
+<p>Mass outreach that feels personal. Drop voicemail without ringing, low cost per contact.</p>
+
+<p><strong>Key elements:</strong></p>
+<ul>
+<li>30-second max script</li>
+<li>First name mention</li>
+<li>Property address reference</li>
+<li>Callback number</li>
+</ul>
+
+<p><strong>Timing:</strong> Send after mail piece, before calling attempt</p>
+
+<div class="warning-box">
+<strong>Compliance Reminder:</strong> Always verify TCPA, FTC, and state regulations before any text, call, or email campaign. Opt-out requests must be honored immediately. Consider using compliance-focused platforms like PhoneWagon, CallRail, or similar for SMS and calling.
+</div>
+
+<h2><span class="section-number">6</span> The 30-Day Outreach Sequence</h2>
+
+<p>Don't send one message and wait. Create a systematic multi-touch sequence that builds familiarity and trust over time.</p>
+
+<h3>Step 6.1: Sequence Overview</h3>
+
+<table>
+<tr><th>Day</th><th>Channel</th><th>Purpose</th></tr>
+<tr><td>1</td><td>Direct Mail</td><td>First introduction, visual impact</td></tr>
+<tr><td>3</td><td>RVM Drop</td><td>Audio touch, create awareness</td></tr>
+<tr><td>5</td><td>Cold Call Attempt</td><td>Live conversation (leave VM if no answer)</td></tr>
+<tr><td>7</td><td>Text Message</td><td>Digital touch, easy response option</td></tr>
+<tr><td>10</td><td>Follow-up Mail</td><td>Second mail piece, different angle</td></tr>
+<tr><td>14</td><td>Email (if available)</td><td>Digital nurture, click tracking</td></tr>
+<tr><td>17</td><td>Second Call</td><td>Second live attempt, reference previous touch</td></tr>
+<tr><td>21</td><td>Final Mail</td><td>Last chance, urgency if appropriate</td></tr>
+<tr><td>25+</td><td>Monthly Nurture</td><td>Stay in mind without pressure</td></tr>
+</table>
+
+<h3>Step 6.2: Tracking Response Rates</h3>
+
+<p>Every outreach effort should be tracked. Set up your CRM to record:</p>
+
+<ul>
+<li>Date of each touch</li>
+<li>Channel used</li>
+<li>Response (reply, call, none)</li>
+<li>Response quality (hot, warm, cold)</li>
+<li>Notes from interaction</li>
+</ul>
+
+<div class="code-block"># Simple tracking spreadsheet columns
+# Lead ID | Touch 1 Date | Touch 1 Type | Response 1 |
+# Touch 2 Date | Touch 2 Type | Response 2 | Notes</div>
+
+<div class="tip-box">
+<strong>Pro Tip:</strong> Track not just responses, but reply rates by channel. If text messages get 5% response but direct mail gets 2%, weight your outreach budget toward texts for future campaigns.
+</div>
+
+<div class="page-break"></div>
+
+<!-- WEEK 4 -->
+<div class="week-header">
+<h2>WEEK 4: Field Offers</h2>
+<p>Days 22-30: Pipeline Management & Live Deal Structuring</p>
+</div>
+
+<h2><span class="section-number">7</span> Pipeline Management System</h2>
+
+<p>By Week 4, you should have responses flowing in. Managing your pipeline efficiently determines whether you convert leads into deals.</p>
+
+<h3>Step 7.1: Kanban Board Structure</h3>
+
+<p>Use a visual kanban board (Airtable, Trello, or even physical cards) with these columns:</p>
+
+<table>
+<tr><th>Column</th><th>Definition</th><th>Action</th></tr>
+<tr><td>New Leads</td><td>Just added to system</td><td>Initial research and scoring</td></tr>
+<tr><td>Initial Contact</td><td>First outreach sent</td><td>Wait for response</td></tr>
+<tr><td>Responded</td><td>Replied to outreach</td><td>Schedule call or meeting</td></tr>
+<tr><td>Qualified</td><td>Confirmed motivation and property details</td><td>Gather property info and photos</td></tr>
+<tr><td>Under Review</td><td>Analyzing deal parameters</td><td>Run numbers, calculate offer</td></tr>
+<tr><td>Offer Made</td><td>Submitted written offer</td><td>Wait for response</td></tr>
+<tr><td>Negotiating</td><td>In back-and-forth on terms</td><td>Counter, resolve issues</td></tr>
+<tr><td>Under Contract</td><td>Agreement signed</td><td>Move to close</td></tr>
+<tr><td>Dead</td><td>No longer active lead</td><td>Archive, may revisit later</td></tr>
+</table>
+
+<h3>Step 7.2: Lead Qualification Script</h3>
+
+<p>When a seller responds, ask these questions to qualify:</p>
+
+<div class="code-block">QUALIFICATION SCRIPT:
+
+Opening:
+"I'm calling because we help homeowners who want to sell quickly.
+Is now still a good time to talk about [property address]?"
+
+Questions:
+1. "Can you tell me a little about your situation?
+   What made you want to sell?"
+
+2. "How long have you owned the property?"
+   (Longer ownership = more flexibility)
+
+3. "Are there any loans or liens on the property?"
+   (Understand encumbrances)
+
+4. "What's the property condition like?
+   Have you had any major repairs recently?"
+   (Assess rehab needs)
+
+5. "Do you have a timeline in mind for selling?"
+   (Urgency check)
+
+6. "Have you talked to any other investors?
+   What offers have you received?"
+   (Competitive positioning)
+
+7. "What do you need to walk away with from the sale?"
+   (Minimum acceptable)
+
+Closer:
+"I appreciate you sharing all this.
+Let me review what we've discussed and I'll put together
+a framework. Would next week work for a follow-up call?"</div>
+
+<h3>Step 7.3: Response Time Standards</h3>
+
+<p>Speed matters. Set these response standards:</p>
+
+<ul>
+<li><strong>Incoming calls:</strong> Answer or return within 2 hours</li>
+<li><strong>Incoming texts:</strong> Reply within 15 minutes during business hours</li>
+<li><strong>Incoming emails:</strong> Reply within 4 hours</li>
+<li><strong>Facebook/inquiry forms:</strong> Reply within 30 minutes</li>
+</ul>
+
+<p>Set up notifications for all channels and check them regularly throughout the day.</p>
+
+<h2><span class="section-number">8</span> Deal Analysis & Offer Structuring</h2>
+
+<p>Every deal opportunity requires structured analysis before making an offer. This prevents emotional decisions and ensures profitability.</p>
+
+<h3>Step 8.1: The MAO Calculator (Maximum Allowable Offer)</h3>
+
+<p>Your MAO is the highest price you can pay while still making a profit after all costs.</p>
+
+<div class="code-block">def calculate_mao():
+    """
+    Maximum Allowable Offer Calculator
+
+    Fill in your numbers below
+    """
+
+    # INPUTS
+    after_repair_value = 200000  # ARV - What property will be worth after repairs
+    repair_costs = 25000          # Estimated repairs
+    holding_costs = 3000          # Expected holding costs (taxes, insurance, utilities)
+    selling_costs = 12000        # Closing costs + agent fees (typically 8-10% of sale)
+    desired_profit = 20000       # Your target profit
+
+    # CALCULATIONS
+    total_costs = repair_costs + holding_costs + selling_costs + desired_profit
+
+    max_offer = after_repair_value - total_costs
+
+    # OUTPUT
+    print(f"After Repair Value (ARV): ${after_repair_value:,}")
+    print(f"Total Costs: ${total_costs:,}")
+    print(f"  - Repairs: ${repair_costs:,}")
+    print(f"  - Holding: ${holding_costs:,}")
+    print(f"  - Selling: ${selling_costs:,}")
+    print(f"  - Profit: ${desired_profit:,}")
+    print(f"")
+    print(f"MAXIMUM ALLOWABLE OFFER: ${max_offer:,}")
+
+    # Save this as your starting point, not your final offer
+    # Offer 10-15% below MAO for negotiation room
+    opening_offer = max_offer * 0.85
+    print(f"Suggested Opening Offer (15% below MAO): ${opening_offer:,}")
+
+calculate_mao()</div>
+
+<h3>Step 8.2: The Six-Point Deal Analysis</h3>
+
+<p>Before making any offer, evaluate these six factors:</p>
+
+<ol>
+<li><strong>Location Quality</strong> — Neighborhood, schools, amenities, job market</li>
+<li><strong>Property Condition</strong> — Major systems (roof, HVAC, foundation), cosmetic needs</li>
+<li><strong>Owner Motivation</strong> — Urgency level, flexibility on price and terms</li>
+<li><strong>Market Conditions</strong> — Days on market, comparable sales, inventory levels</li>
+<li><strong>Exit Strategy Clarity</strong> — Wholesale, retail, rental, flip? What's the plan?</li>
+<li><strong>Risk Factors</strong> — Title issues, code violations, environmental concerns</li>
+</ol>
+
+<h3>Step 8.3: Offer Submission Template</h3>
+
+<div class="code-block">DATE: [Current Date]
+
+PROPERTY: [Property Address]
+OWNER: [Seller Name]
+
+OFFER PRICE: $[Your Offer Amount]
+
+TERMS:
+- Closing Date: [Proposed Date, typically 21-30 days out]
+- Possession: [At closing / 72 hours after closing]
+- As-Is: Property sold in current condition
+- No warranties: Seller makes no representations about condition
+
+INCLUDED:
+- This offer
+- Copy of proof of funds or lender pre-approval letter
+- Seller's disclosure (if applicable)
+
+CONTINGENCIES:
+- Title search satisfactory to buyer
+- Inspection period: 10 days from acceptance
+- Buyer may terminate for any reason during inspection period
+
+This offer is valid for 72 hours from receipt.
+
+[Your Name]
+[Your Company]
+[Phone]
+[Email]</div>
+
+<h3>Step 8.4: Target Submission Goals</h3>
+
+<p>Your Week 4 goal is to submit 3-5 written offers by Day 30. Even if only 1-2 accept, that's 1-2 potential deals.</p>
+
+<table>
+<tr><th>Goal</th><th>Target</th><th>Stretch Goal</th></tr>
+<tr><td>Offers Submitted (Day 30)</td><td>3</td><td>5</td></tr>
+<tr><td>Offers Accepted</td><td>1</td><td>2</td></tr>
+<tr><td>Deals Closed (60 days)</td><td>1</td><td>2</td></tr>
+</table>
+
+<div class="warning-box">
+<strong>Reality Check:</strong> Not every offer will be accepted. A 20-30% acceptance rate on off-market offers is good. Focus on building a pipeline that generates enough volume to hit your numbers over time.
+</div>
+
+<h2><span class="section-number">9</span> Your Ongoing System</h2>
+
+<p>This 30-day sprint establishes your system. To maintain a steady flow of off-market deals, continue these habits:</p>
+
+<h3>Daily (5-10 minutes)</h3>
+<ul>
+<li>Check new leads from automated scraper</li>
+<li>Respond to any incoming inquiries immediately</li>
+<li>Log all outreach activity</li>
+</ul>
+
+<h3>Weekly (1-2 hours)</h3>
+<ul>
+<li>Review and score new leads</li>
+<li>Send follow-up sequences to active leads</li>
+<li>Update pipeline status for all active leads</li>
+<li>Analyze what's working (track metrics)</li>
+</ul>
+
+<h3>Monthly (half-day)</h3>
+<ul>
+<li>Deep review of closed deals (what worked, what didn't)</li>
+<li>Adjust scoring weights based on conversion data</li>
+<li>Optimize outreach messaging based on response rates</li>
+<li>Explore new data sources to expand lead pool</li>
+</ul>
+
+<div class="tip-box">
+<strong>Long-Term Success:</strong> Off-market investing is a volume game. The more leads you process, the more deals you find. Build systems that scale, and focus on relationships. Most of your best deals will come from sellers who referred you to their friends and family.
+</div>
+
+<footer>
+<p><strong>DISCLAIMER:</strong> This blueprint is for educational purposes only. Real estate investing involves risk, and results vary based on market conditions, individual effort, and due diligence. Always verify property information independently and consult appropriate professionals (attorneys, accountants, real estate agents) before making investment decisions. This product does not guarantee deals, profits, or specific outcomes.</p>
+</footer>
+
+</body>
+</html>
